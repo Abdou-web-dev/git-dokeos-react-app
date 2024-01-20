@@ -20,13 +20,21 @@ const MainNavBar = () => {
       // label: "Params",
       logo: settings,
       submenuItems: [
-        { to: "/params/custom", label: "Personnalisation", logo: share },
-        { to: "/params/recap", label: "Recap", logo: share },
+        {
+          to: "/params/custom",
+          label: "Personnalisation du portail",
+          // , logo: share
+        },
+        {
+          to: "/params/recap",
+          label: "Récapitulatif des certificats",
+          // , logo: share
+        },
       ],
     },
     {
       to: "/partner",
-      label: "Portails du partenaire".slice(0, 13),
+      label: "Portails du partenaire",
       logo: share,
     },
   ];
@@ -35,12 +43,12 @@ const MainNavBar = () => {
     <div>
       <Sidebar className="sidebar-container">
         <Menu>
-          {menuItems?.map((item) =>
+          {menuItems?.map((item, index) =>
             item.submenuItems ? (
               <SubMenu
+                key={index}
                 className="sub-menu-elem"
                 label="Parametres"
-                key={item.label}
                 title={item.label}
                 icon={<img width={`22px`} src={item.logo} alt="" />}
               >
@@ -49,13 +57,21 @@ const MainNavBar = () => {
                     key={subItem.to}
                     component={<Link to={subItem.to} />}
                   >
-                    <img width={`22px`} src={subItem.logo} alt="" />
+                    {/* <img width={`22px`} src={subItem?.logo || ""} alt="" /> */}
                     {subItem.label}
                   </MenuItem>
                 ))}
               </SubMenu>
             ) : (
-              <MenuItem key={item.to} component={<Link to={item.to} />}>
+              <MenuItem
+                className={
+                  item.label === "Portails du partenaire"
+                    ? "partner-menuitem"
+                    : ""
+                }
+                key={item.to}
+                component={<Link to={item.to} />}
+              >
                 <img width={`22px`} src={item.logo} alt="" />
                 {item.label}
               </MenuItem>

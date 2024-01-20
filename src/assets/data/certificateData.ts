@@ -1,0 +1,51 @@
+export const myData = [
+  {
+    id: 1,
+    certificate: "Certificat Dokeos",
+    learner: "Saski Doe",
+    course: "React Basics",
+    generationDate: "2022-01-01",
+    expirationDate: "2023-01-01",
+  },
+  {
+    id: 2,
+    certificate: "Certificat Scrum",
+    learner: "Jane Smith",
+    course: "JavaScript Fundamentals",
+    generationDate: "2021-04-01",
+    expirationDate: "2024-08-01",
+  },
+  {
+    id: 3,
+    certificate: "Certificat 3",
+    learner: "Felix Vercouter",
+    course: "Python Fundamentals",
+    generationDate: "2019-02-11",
+    expirationDate: "2023-02-08",
+  },
+  {
+    id: 4,
+    certificate: "Certificat 4",
+    learner: "Assil kary",
+    course: "Java Fundamentals",
+    generationDate: "2015-12-01",
+    expirationDate: "2020-02-09",
+  },
+  {
+    id: 5,
+    certificate: "Certificat 5",
+    learner: "Babil Samad",
+    course: "Node Fundamentals",
+    generationDate: "2011-02-11",
+    expirationDate: "2013-11-05",
+  },
+  {
+    id: 6,
+    certificate: "Certificat 6",
+    learner: "Kanyue Abdel",
+    course: ".NET Fundamentals",
+    generationDate: "2014-12-01",
+    expirationDate: "2020-05-01",
+  },
+  // Add more data as needed
+];

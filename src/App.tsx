@@ -5,7 +5,8 @@ import MainNavBar from "./components/MainNavBar";
 import NotFound from "./components/NotFound";
 import Catalogue from "./pages/Catalogue";
 import Module from "./pages/Module";
-import Parameters from "./pages/Parameters";
+import ParametersCustom from "./pages/ParametersCustom";
+import CertificateTable from "./pages/ParametersRecap";
 import Partener from "./pages/Partener";
 import Status from "./pages/Status";
 import Training from "./pages/Training";
@@ -26,13 +27,23 @@ function App() {
             <Route path="/training" element={<Training />} />
             <Route path="/module" element={<Module />} />
             <Route path="/catalogue" element={<Catalogue />} />
-            <Route path="/params" element={<Parameters />} />
+            <Route path="/params/*" element={<ParamsRoutes />} />
             <Route path="/partner" element={<Partener />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </div>
     </Router>
+  );
+}
+
+function ParamsRoutes() {
+  return (
+    <Routes>
+      <Route path="recap" element={<CertificateTable />} />
+      <Route path="custom" element={<ParametersCustom />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

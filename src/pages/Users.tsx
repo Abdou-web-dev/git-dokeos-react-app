@@ -1,4 +1,3 @@
-import meriam from "../assets/img/menu_icons/20230818_195627.jpg";
 const Users = () => {
   return (
     <div className="page-content-container">
@@ -13,7 +12,6 @@ const Users = () => {
       temporibus tempore eos deleniti, illum corporis libero, voluptatibus
       quaerat, voluptates at! Facilis vero reiciendis optio saepe ea, qui iusto
       nam?
-      <img width={`600px`} src={meriam} alt="" />
     </div>
   );
 };
