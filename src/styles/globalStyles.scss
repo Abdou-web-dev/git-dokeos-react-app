@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  margin: 0; /* Remove default body margin */
+  font-family: "Nunito Sans", sans-serif;
+  span,
+  .page-content-container {
+    color: black;
+  }
+}
+
+.app-container {
+  // ******************
+  .appbar-container {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 5px #00000012;
+    opacity: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    // width: 100%; /* Make appbar-container take 100% width */
+
+    button {
+      &:focus {
+        //   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+        //     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+          rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        //   border-bottom: 0.5px solid #0084a834 !important;
+      }
+    }
+    button.left-content {
+      width: 100px;
+      border: 1px solid;
+      padding: 0;
+      outline: 0;
+      border: 0;
+      img {
+        width: 100px;
+        height: auto;
+      }
+    }
+    button.middle-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 0;
+      img.av {
+        width: 25px;
+        height: 25px;
+      }
+      span {
+        text-align: left;
+        letter-spacing: 0px;
+        color: #878787;
+        opacity: 1;
+        font-family: "Nunito Sans", sans-serif;
+      }
+      img.arr {
+        width: 20px;
+      }
+    }
+    div.right-content {
+      @include flex-center();
+      justify-content: space-between;
+      width: 8%;
+      // border: 1px solid red;
+      button {
+        padding: 0;
+        outline: 0;
+        border: 0;
+        img {
+          border-radius: 100%;
+        }
+      }
+      button.plus-btn {
+      }
+      button.alert-btn {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 0px; /* Adjust this value to position the bullet vertically */
+          right: 0px; /* Adjust this value to position the bullet horizontally */
+          width: 10px; /* Adjust the width of the bullet */
+          height: 10px; /* Adjust the height of the bullet */
+          background-color: #0084a8; /* Set the color of the bullet */
+          border-radius: 50%; /* Make the bullet circular */
+          display: block;
+          z-index: 1; /* Ensure the bullet is on top of the button content */
+        }
+      }
+      button.fem-avatar-btn {
+      }
+    }
+  }
+  .content-container {
+    overflow-y: auto; /* Allow content to scroll if needed */
+    flex-direction: row;
+    display: flex;
+    aside.sidebar-container {
+      .ps-sidebar-container {
+        nav {
+          ul {
+            li {
+              // margin-right: 1rem;
+              // border: 1px solid red;
+              // width: 120%;
+              a {
+                background: #ffffff 0% 0% no-repeat padding-box;
+                box-shadow: 5px 0px 7px #00000012;
+                opacity: 1;
+                padding: 1.2rem;
+
+                &:focus {
+                  background: #0084a8 0% 0% no-repeat padding-box;
+                  opacity: 1;
+                  transition: background 0.45s ease; /* Add transition property */
+                  span {
+                  }
+                }
+                &:hover {
+                  background: #0084a857 0% 0% no-repeat padding-box;
+                  opacity: 1;
+                  transition: background 0.45s ease; /* Add transition property */
+                  span {
+                    color: white !important;
+                  }
+                }
+                span {
+                  text-align: left;
+                  letter-spacing: 0px;
+                  color: #878787;
+                  opacity: 1;
+                  &.ps-menu-label {
+                    @include flex-center();
+                    justify-content: space-evenly;
+                    font-family: "Nunito Sans", sans-serif;
+                  }
+                }
+              }
+              &.sub-menu-elem {
+                a {
+                  padding-left: 2rem;
+                  img {
+                    // border: 1px solid red;
+                    position: relative;
+                    left: 1.2rem;
+                  }
+                  span {
+                    // border: 1px solid red;
+                    // max-width: 40%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .page-content-container {
+      width: 100%;
+    }
+  }
+}
+
+// .nunito-sans-<uniquifier> {
+//     font-family: "Nunito Sans", sans-serif;
+//     font-optical-sizing: auto;
+//     font-weight: <weight>;
+//     font-style: normal;
+//     font-variation-settings:
+//       "wdth" 100,
+//       "YTLC" 500;
+//   }
