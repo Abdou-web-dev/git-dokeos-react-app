@@ -255,7 +255,7 @@ body {
 }
 
 // -----------------------------------
-.certif-table-container {
+.params-recap-table-container {
   width: 100vw;
   overflow-x: hidden;
   background: #f2f2f2 0% 0% no-repeat padding-box;
@@ -274,7 +274,7 @@ body {
     opacity: 1;
     // width: 100vw;
     width: 94%;
-    margin: 1rem 0rem 100rem 3rem;
+    margin: 1rem 0rem 100rem 1.5rem;
 
     .table-header {
       @include flex-center();
@@ -374,6 +374,9 @@ body {
             font-family: "Nunito Sans", sans-serif;
             outline: 0;
             border: 0;
+            &::placeholder {
+              color: #c6c6c6;
+            }
 
             &:hover {
               box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -385,34 +388,95 @@ body {
         }
       }
     }
-    table {
-      padding-left: 2rem;
-      thead {
-        tr {
-          th {
-            button {
-              padding: 0;
+    table.certif-table {
+      padding-left: 0;
+      width: 100%;
+      thead.t-header {
+        tr.t-row {
+          th.t-head {
+            // font-size: 15px;
+
+            button.arrow-button {
+              position: relative;
+              overflow: hidden;
+              margin: 0 auto;
+              padding: 0.05rem;
+              width: 100%;
+              display: flex;
+              justify-content: space-around;
+              &.arrow-button-length__12 {
+                justify-content: space-between;
+              }
+              &.arrow-button-exp {
+                max-width: 91%;
+              }
+              &.arrow-button-appre {
+                .arrow-icon {
+                  img {
+                    position: relative;
+                    left: 7px;
+                  }
+                }
+              }
+              &.arrow-button-gener {
+                max-width: 88%;
+              }
+              &.arrow-button-forma {
+                max-width: 70%;
+              }
+              &.arrow-button-actions {
+                max-width: 55%;
+              }
+              &.arrow-button-certif {
+                max-width: 90%;
+              }
+
+              span {
+                font-size: 15px;
+                color: #878787;
+                font-weight: bold;
+                font-family: "Nunito Sans", sans-serif;
+              }
+              div.arrow-icon {
+                position: absolute;
+                top: 50%;
+                right: 5px;
+                transform: translateY(-50%);
+                transition: transform 0.3s ease; /* Add smooth transition */
+                img {
+                  position: relative;
+                  top: 2px;
+                }
+              }
+
+              &.desc .arrow-icon {
+                transform: translateY(-50%) rotate(180deg);
+              }
+            }
+          }
+        }
+      }
+      tbody.t-body {
+        tr.t-body-row {
+          td {
+            text-align: center;
+            // margin: 0 auto;
+            font-size: 12px;
+            color: #878787;
+            font-family: "Nunito Sans", sans-serif;
+            .action-btns-container {
+              @include flex-center();
+              button.trash-btn {
+                &:hover {
+                  transform: translateY(5%);
+                  // transform: scale(1.05);
+                  transition: transform 0.6s ease; /* Add smooth transition */
+                }
+              }
             }
           }
         }
       }
     }
-  }
-}
-
-.arrow-button {
-  position: relative;
-  overflow: hidden;
-  .arrow-icon {
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    transform: translateY(-50%);
-    transition: transform 0.3s ease; /* Add smooth transition */
-    // display: none;
-  }
-
-  &.desc .arrow-icon {
-    transform: translateY(-50%) rotate(180deg);
   }
 }
