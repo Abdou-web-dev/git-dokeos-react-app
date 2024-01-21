@@ -399,3 +399,20 @@ body {
     }
   }
 }
+
+.arrow-button {
+  position: relative;
+  overflow: hidden;
+  .arrow-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease; /* Add smooth transition */
+    // display: none;
+  }
+
+  &.desc .arrow-icon {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}

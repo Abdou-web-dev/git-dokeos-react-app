@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { myData } from "../assets/data/certificateData";
 import CertifTableHeader from "../components/tables/CertifTableHeader";
+import HeadButton from "../components/tables/buttons/HeadButton";
 
 const CertificateTable = () => {
   const [data, setData] = useState(myData);
+  const [sortDirection, setSortDirection] = useState("asc"); // Initial sorting direction
 
   const [sortBy, setSortBy] = useState("");
   const [sortOrder, setSortOrder] = useState("asc");
@@ -15,6 +17,9 @@ const CertificateTable = () => {
       setSortBy(column);
       setSortOrder("asc");
     }
+    // Toggle the sorting direction
+    const newSortDirection = sortDirection === "asc" ? "desc" : "asc";
+    setSortDirection(newSortDirection);
   };
 
   const sortedData = [...data].sort((a, b) => {
@@ -40,6 +45,18 @@ const CertificateTable = () => {
     }
   });
 
+  const tableHeaders: {
+    label: string;
+    title: string;
+  }[] = [
+    { label: "certificate", title: "Nom du Certificat" },
+    { label: "learner", title: "Apprenant" },
+    { label: "course", title: "Formation" },
+    { label: "generationDate", title: "Date de génération" },
+    { label: "expirationDate", title: "Date d'Expriration" },
+    { label: "actions", title: "Actions" },
+  ];
+
   return (
     <div className="page-content-container certif-table-container">
       <p>Mes Certificats</p>
@@ -49,28 +66,66 @@ const CertificateTable = () => {
           <thead>
             <tr>
               <th>
-                <button onClick={() => handleSort("certificate")}>
-                  Nom du certificat
-                </button>
+                <HeadButton
+                  {...{
+                    label: "certificate",
+                    handleSort,
+                    sortDirection,
+                    title: "Nom du Certificat",
+                  }}
+                  // this code snippet is creating a HeadButton component and passing the properties (label: "certificate"), handleSort, sortDirection, to it.
+                  // using the spread operator ({...}) to pass the properties as an object,
+                />
               </th>
               <th>
-                <button onClick={() => handleSort("learner")}>Apprenant</button>
+                <HeadButton
+                  {...{
+                    label: "learner",
+                    handleSort,
+                    sortDirection,
+                    title: "Apprenant",
+                  }}
+                />
               </th>
               <th>
-                <button onClick={() => handleSort("course")}>Formation</button>
+                <HeadButton
+                  {...{
+                    label: "course",
+                    handleSort,
+                    sortDirection,
+                    title: "Formation",
+                  }}
+                />
               </th>
               <th>
-                <button onClick={() => handleSort("generationDate")}>
-                  Date de génération
-                </button>
+                <HeadButton
+                  {...{
+                    label: "generationDate",
+                    handleSort,
+                    sortDirection,
+                    title: "Date de génération",
+                  }}
+                />
               </th>
               <th>
-                <button onClick={() => handleSort("expirationDate")}>
-                  Date d'expiration
-                </button>
+                <HeadButton
+                  {...{
+                    label: "expirationDate",
+                    handleSort,
+                    sortDirection,
+                    title: "Date d'Expriration",
+                  }}
+                />
               </th>
               <th>
-                <button onClick={() => handleSort("actions")}>Actions</button>
+                <HeadButton
+                  {...{
+                    label: "actions",
+                    handleSort,
+                    sortDirection,
+                    title: "Actions",
+                  }}
+                />
               </th>
             </tr>
           </thead>
