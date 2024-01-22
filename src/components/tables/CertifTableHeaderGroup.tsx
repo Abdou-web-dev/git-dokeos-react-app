@@ -1,10 +1,14 @@
 import { FunctionComponent } from "react";
 import cloud from "../../assets/img/cloud-arrow-down-alt-svgrepo-com.svg";
+import { RecapType } from "../../interfaces/types";
 import SearchInput from "../input/SearchField";
 
-interface CertifTableHeaderProps {}
-
-const CertifTableHeader: FunctionComponent<CertifTableHeaderProps> = () => {
+interface CertifTableHeaderGroupProps {
+  data: RecapType["recapData"];
+}
+const CertifTableHeaderGroup: FunctionComponent<
+  CertifTableHeaderGroupProps
+> = ({ data }) => {
   return (
     <div className="table-header">
       <div className="table-label">Utilisateurs</div>
@@ -13,10 +17,10 @@ const CertifTableHeader: FunctionComponent<CertifTableHeaderProps> = () => {
           <img width={`30px`} src={cloud} className="cloud-icon" alt="" />
           <span>Export Excel</span>
         </button>
-        <SearchInput />
+        <SearchInput {...{ data }} />
       </div>
     </div>
   );
 };
 
-export default CertifTableHeader;
+export default CertifTableHeaderGroup;

@@ -40,46 +40,41 @@ const MainNavBar = () => {
   ];
 
   return (
-    <div>
-      <Sidebar className="sidebar-container">
-        <Menu>
-          {menuItems?.map((item, index) =>
-            item.submenuItems ? (
-              <SubMenu
-                key={index}
-                className="sub-menu-elem"
-                label="Parametres"
-                title={item.label}
-                icon={<img width={`22px`} src={item.logo} alt="" />}
-              >
-                {item.submenuItems.map((subItem) => (
-                  <MenuItem
-                    key={subItem.to}
-                    component={<Link to={subItem.to} />}
-                  >
-                    {/* <img width={`22px`} src={subItem?.logo || ""} alt="" /> */}
-                    {subItem.label}
-                  </MenuItem>
-                ))}
-              </SubMenu>
-            ) : (
-              <MenuItem
-                className={
-                  item.label === "Portails du partenaire"
-                    ? "partner-menuitem"
-                    : ""
-                }
-                key={item.to}
-                component={<Link to={item.to} />}
-              >
-                <img width={`22px`} src={item.logo} alt="" />
-                {item.label}
-              </MenuItem>
-            )
-          )}
-        </Menu>
-      </Sidebar>
-    </div>
+    <Sidebar className="sidebar-container">
+      <Menu>
+        {menuItems?.map((item, index) =>
+          item.submenuItems ? (
+            <SubMenu
+              key={index}
+              className="sub-menu-elem"
+              label="Parametres"
+              title={item.label}
+              icon={<img width={`22px`} src={item.logo} alt="" />}
+            >
+              {item.submenuItems.map((subItem) => (
+                <MenuItem key={subItem.to} component={<Link to={subItem.to} />}>
+                  {/* <img width={`22px`} src={subItem?.logo || ""} alt="" /> */}
+                  {subItem.label}
+                </MenuItem>
+              ))}
+            </SubMenu>
+          ) : (
+            <MenuItem
+              className={
+                item.label === "Portails du partenaire"
+                  ? "partner-menuitem"
+                  : ""
+              }
+              key={item.to}
+              component={<Link to={item.to} />}
+            >
+              <img width={`22px`} src={item.logo} alt="" />
+              {item.label}
+            </MenuItem>
+          )
+        )}
+      </Menu>
+    </Sidebar>
   );
 };
 

@@ -18,3 +18,12 @@ export interface tableButtonHeaderType {
   expirationDate: SortDirection | null;
   actions: SortDirection | null;
 }
+
+export interface CertifRowType {
+  id: number;
+  certificate: string;
+  learner: string;
+  course: string;
+  generationDate: string;
+  expirationDate: string;
+}

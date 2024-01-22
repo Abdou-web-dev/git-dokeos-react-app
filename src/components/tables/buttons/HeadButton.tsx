@@ -1,6 +1,4 @@
 import { FunctionComponent } from "react";
-import { ArrowDown } from "../../icons/ArrowDown";
-import { ArrowUp } from "../../icons/ArrowUp";
 
 interface HeadButtonProps {
   label: string;
@@ -13,25 +11,25 @@ const HeadButton: FunctionComponent<HeadButtonProps> = (
   props: HeadButtonProps
 ) => {
   return (
-    <button
-      // the styles of this btn will apply a smooth transition effect when clicking the button. The transition property is set on the .arrow-icon class, and the transition duration is 0.3s. This means that any changes to the transform property of the .arrow-icon will take 0.3 seconds to complete, creating a smooth animation effect
-      className={`arrow-button ${
-        // added these conditional classNames in order to position the arrow icon next to the button title
-        props.title.length > 12 ? "arrow-button-length__12" : ""
-      }${props.title === "Apprenant" ? "arrow-button-appre" : ""}
-      ${props.title === "Formation" ? "arrow-button-forma" : ""}
-      ${props.title === "Actions" ? "arrow-button-actions" : ""}
-      ${props.title === "Date d'Exprir" ? "arrow-button-exp" : ""}
-      ${props.title === "Date de génér" ? "arrow-button-gener" : ""}
-      ${props.title === "Nom du Certif" ? "arrow-button-certif" : ""}
+    <th className="t-head">
+      <button
+        disabled={props.title === "Actions"}
+        // the styles of this btn will apply a smooth transition effect when clicking the button. The transition property is set on the .arrow-icon class, and the transition duration is 0.3s. This means that any changes to the transform property of the .arrow-icon will take 0.3 seconds to complete, creating a smooth animation effect
+        className={`arrow-button ${
+          props.title === "Actions" ? "arrow-button-actions disabled-btn" : ""
+        }
+      
+      ${
+        props.sortDirection === "asc"
+          ? "arrow-button-sort-asc"
+          : "arrow-button-sort-desc"
+      }
       `}
-      onClick={() => props.handleSort(props.label)}
-    >
-      <span>{props.title}</span>
-      <div className="arrow-icon">
-        {props.sortDirection === "asc" ? <ArrowUp /> : <ArrowDown />}
-      </div>
-    </button>
+        onClick={() => props.handleSort(props.label)}
+      >
+        <span>{props.title}</span>
+      </button>
+    </th>
   );
 };
 
