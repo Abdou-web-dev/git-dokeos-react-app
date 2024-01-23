@@ -27,3 +27,22 @@ export interface CertifRowType {
   generationDate: string;
   expirationDate: string;
 }
+
+export interface SideMenuType {
+  sideMenu:
+    | {
+        to: string | undefined;
+        label: string | undefined;
+        logo: string | undefined;
+        submenuItems?: undefined;
+      }
+    | {
+        logo: string | undefined;
+        submenuItems: {
+          to: string | undefined;
+          label: string | undefined;
+        }[];
+        to?: undefined;
+        label?: undefined;
+      }[];
+}

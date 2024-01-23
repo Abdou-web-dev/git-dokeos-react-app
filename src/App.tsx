@@ -4,6 +4,7 @@ import AppBar from "./components/AppBar";
 import MainNavBar from "./components/MainNavBar";
 import NotFound from "./components/NotFound";
 import Catalogue from "./pages/Catalogue";
+import Home from "./pages/Home";
 import Module from "./pages/Module";
 import ParametersCustom from "./pages/ParametersCustom";
 import CertificateTable from "./pages/ParametersRecap";
@@ -22,6 +23,7 @@ function App() {
         <div className="content-container">
           <MainNavBar />
           <Routes>
+            <Route path="/home" element={<Home />} />
             <Route path="/users" element={<Users />} />
             <Route path="/status" element={<Status />} />
             <Route path="/training" element={<Training />} />

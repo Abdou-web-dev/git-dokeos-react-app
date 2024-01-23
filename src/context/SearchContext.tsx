@@ -6,12 +6,22 @@ export interface SearchContextType {
   filteredData: RecapType["recapData"];
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
   setFilteredData: React.Dispatch<React.SetStateAction<RecapType["recapData"]>>;
+  homeTabStyles: React.CSSProperties;
+  setHomeTabStyles: React.Dispatch<React.SetStateAction<React.CSSProperties>>;
+  homeTabTextStyles: React.CSSProperties;
+  setHomeTabTextStyles: React.Dispatch<
+    React.SetStateAction<React.CSSProperties>
+  >;
 }
 export const SearchContext = React.createContext<SearchContextType>({
   searchQuery: "",
   filteredData: [],
   setSearchQuery: () => {},
   setFilteredData: () => {},
+  homeTabStyles: {},
+  setHomeTabStyles: () => {},
+  homeTabTextStyles: {},
+  setHomeTabTextStyles: () => {},
 });
 
 export const SearchContextProvider = ({
@@ -20,15 +30,23 @@ export const SearchContextProvider = ({
   children: React.ReactNode | JSX.Element | JSX.Element[];
 }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredData, setFilteredData] = useState<RecapType["recapData"]>([]);
-  // console.log(filteredData, "filteredData from context");
+  const [filteredData, setFilteredData] = useState<RecapType["recapData"]>([]); //This part initializes state variables homeTabStyles and homeTabTextStyles using the useState hook in the context provider.
+  const [homeTabStyles, setHomeTabStyles] = useState<React.CSSProperties>({});
+  const [homeTabTextStyles, setHomeTabTextStyles] =
+    useState<React.CSSProperties>({});
 
-  // useEffect(() => {
-  //   setFilteredData([]);
-  // }, []);
   return (
     <SearchContext.Provider
-      value={{ searchQuery, setSearchQuery, filteredData, setFilteredData }}
+      value={{
+        searchQuery,
+        setSearchQuery,
+        filteredData,
+        setFilteredData,
+        homeTabStyles,
+        setHomeTabStyles,
+        homeTabTextStyles,
+        setHomeTabTextStyles,
+      }}
     >
       {children}
     </SearchContext.Provider>

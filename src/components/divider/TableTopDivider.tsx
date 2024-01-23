@@ -15,7 +15,7 @@ export const TableTopDivider = ({
         <div
           style={{
             width: "90%",
-            height: "1px",
+            height: "0.5px",
             backgroundColor: "rgb(135, 135, 135,0.4)",
             margin: "20px auto",
           }}

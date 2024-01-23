@@ -6,6 +6,8 @@ import trash from "../../../assets/img/trash.svg";
 
 interface ActionsButtonsProps {
   onDelete: () => void; // Add onDelete prop
+  cancelStylesPendingDeletion: () => void;
+  applyStylesPendingDeletion: () => void;
 }
 
 const ActionsButtons: FunctionComponent<ActionsButtonsProps> = (
@@ -15,6 +17,7 @@ const ActionsButtons: FunctionComponent<ActionsButtonsProps> = (
 
   function remove(): void {
     props.onDelete();
+    // calling onDelete with parantheses, they are important here
     setIsOpen(false);
   }
 
@@ -27,25 +30,18 @@ const ActionsButtons: FunctionComponent<ActionsButtonsProps> = (
   return (
     <div className="action-btns-container">
       <>
-        <button
-          className={`action-button btn1`}
-          // onClick={() => null}
-          // ${props.prop1}
-        >
+        <button className={`action-button btn1`}>
           <img width={"35px"} src={cloud} alt="" />
         </button>
-        <button
-          className={`action-button btn2`}
-          // onClick={() => null}
-          // ${props.prop1}
-        >
+        <button className={`action-button btn2`}>
           <img width={"25px"} src={synchronize} alt="" />
         </button>
         <button
           className={`action-button btn3 trash-btn`}
-          onClick={() => setIsOpen(true)}
-          // calling onDelete with parantheses, they are important here
-          // ${props.prop1}
+          onClick={() => {
+            setIsOpen(true); // Set the selected row for deletion
+            props.applyStylesPendingDeletion();
+          }}
         >
           <img width={"35px"} src={trash} alt="" />
         </button>
@@ -68,7 +64,13 @@ const ActionsButtons: FunctionComponent<ActionsButtonsProps> = (
             <button className={`modal-btn-yes`} onClick={() => remove()}>
               <span>YES</span>
             </button>
-            <button className={`modal-btn-no`} onClick={() => setIsOpen(false)}>
+            <button
+              className={`modal-btn-no`}
+              onClick={() => {
+                setIsOpen(false);
+                props.cancelStylesPendingDeletion();
+              }}
+            >
               <span>NO</span>
             </button>
           </div>

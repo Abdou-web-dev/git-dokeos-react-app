@@ -124,7 +124,8 @@ const CertificateTable = () => {
     // Update both the filteredData and the original data state
     if (searchQuery?.length !== 0 && filteredData?.length !== 0) {
       setFilteredData(newData);
-      setData((prevData) => prevData.filter((item) => item.id !== id)); //This should ensure that when I delete a row from filteredData and then clear the search field, the deleted row is correctly removed from the original data array as well.
+      setData((prevData) => prevData.filter((item) => item.id !== id)); //This should ensure that when I delete a row from filteredData and then clear the search field,
+      // the deleted row is correctly removed from the original data array as well.
     } else {
       setData(newData);
     }
@@ -204,6 +205,7 @@ const CertificateTable = () => {
             />
 
             <CertifTableBody
+              {...{ handleDelete }}
               {...{ handleDelete }}
               tableData={sortedData.slice(0, visibleRows)} //sortedData.slice(0, visibleRows) is using the slice method to extract a portion of the sortedData array.
             />
